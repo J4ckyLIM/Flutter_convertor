@@ -27,7 +27,7 @@ class FileSize {
   }
 
   double convertSize(String unitToConvertTo) {
-    double sizeToOctet = this.size * toOctetCoefficients[this.unit];
+    double sizeToOctet = (this.size * toOctetCoefficients[this.unit]).toDouble();
     double sizeToUnit =
         sizeToOctet * fromOctetToOtherCoefficients[unitToConvertTo];
     return sizeToUnit;
