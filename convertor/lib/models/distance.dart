@@ -11,11 +11,11 @@ class Distance {
     'mm': 1 / 1000,
     'cm': 1 / 100,
     'dm': 1 / 10,
-    'm': 1 ,
+    'm': 1,
     'km': 1000,
-    'yd': 1 / 1.094,
-    'ft': 1 / 3.281,
-    'in': 1 / 39.3701
+    'yd': 1.094,
+    'ft': 3.281,
+    'in': 39.3701
   };
 
   Map<String, Object> fromMeterToOtherCoefficients = {
