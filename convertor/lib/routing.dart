@@ -1,6 +1,7 @@
 import 'package:convertor/main.dart';
 import 'package:convertor/routes.dart';
 import 'package:convertor/screens/area_convertor.dart';
+import 'package:convertor/screens/birthday_calculator.dart';
 import 'package:convertor/screens/date_calculator.dart';
 import 'package:convertor/screens/distance_convertor.dart';
 import 'package:convertor/screens/file_size_convertor.dart';
@@ -10,7 +11,7 @@ import 'package:convertor/screens/temperature_convertor.dart';
 import 'package:flutter/material.dart';
 
 class Routing {
-  static void navigatoToScreen(BuildContext context, Routes route) {
+  static void navigateToScreen(BuildContext context, Routes route) {
     switch (route) {
       case Routes.AreaConvertor:
         Navigator.push(
@@ -65,6 +66,14 @@ class Routing {
           MaterialPageRoute(
               builder: (context) =>
                   TemperatureConvertor(title: 'Temperature convertor')),
+        );
+        break;
+      case Routes.BirthdayCalculator:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  BirthdayCalculator(title: 'Birthday calculator')),
         );
         break;
       default:
