@@ -76,6 +76,8 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
                         _dropdownValue = newValue;
 
                         fileSize1.unit = newValue.value;
+
+                        fileSize2.size = fileSize2.convertSize(fileSize1.unit);
                       });
                     },
                     items: _truc
@@ -119,6 +121,8 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
                           _dropdownValue2 = newValue;
 
                           fileSize2.unit = newValue.value;
+
+                          fileSize1.size = fileSize1.convertSize(fileSize2.unit);
                         });
                       },
                       items: _truc
