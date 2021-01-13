@@ -1,5 +1,5 @@
 class FileSize {
-  int size;
+  double size;
 
   String unit;
 
@@ -21,7 +21,7 @@ class FileSize {
     'po': 1 / 1000000000000000
   };
 
-  FileSize(int mySize, String myUnit) {
+  FileSize(double mySize, String myUnit) {
     this.size = mySize;
     this.unit = myUnit;
   }
