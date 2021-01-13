@@ -4,23 +4,17 @@ class Birthday {
 
   Birthday(this.dateBirthday); 
 
-  Map<String, Object> liveDuration(DateTime birthday){
+  Map<String, Object> lifeDuration(DateTime birthday){
 
-    //DateTime dateNow = new DateTime.now();
     
     Duration difference = DateTime.now().difference(birthday);
     
-    int hour = difference.inHours;
-    int day = difference.inDays;
-    String month = (day / 30).toStringAsFixed(2);
-    String year = (day / 365).toStringAsFixed(2);
+    int hoursLived = difference.inHours;
+    int daysLived = difference.inDays;
+    String monthsLived = (daysLived / 30).toStringAsFixed(2);
+    String yearsLived = (daysLived / 365).toStringAsFixed(2);
     
-    return {
-      'hour' : hour,
-      'day': day, 
-      'month': month, 
-      'year': year 
-      }; 
+    return {'hour' : hoursLived, 'day': daysLived, 'month': monthsLived, 'year': yearsLived }; 
   }
 
   Map<String, Object> nextBirthday() { // fonction pour la date du prochain anniversaire
@@ -30,21 +24,21 @@ class Birthday {
         new DateTime(today.year, this.dateBirthday.month, this.dateBirthday.day);
 
     if (nextBirthdayDate.isBefore(today)) {
-      // nextBirthdayDate.year + 1;
-      DateTime newDate =
-          new DateTime(today.year + 1, this.dateBirthday.month, this.dateBirthday.day);
+      
+      DateTime secondNextBirthdayDate =
+          new DateTime(today.year + 1, this.dateBirthday.month, this.dateBirthday.day); 
 
-      Duration difference = newDate.difference(today);
-      int day = difference.inDays;
-      String month = (day / 30).toStringAsFixed(0);
+      Duration difference = secondNextBirthdayDate.difference(today);
+      int differenceInDays = difference.inDays;
+      String differenceInMonths = (differenceInDays / 30).toStringAsFixed(0);
 
-      return {'day': day +1, 'month': month};
+      return {'day': differenceInDays + 1, 'month': differenceInMonths};
     } else {
       Duration difference = nextBirthdayDate.difference(today);
-      int day = difference.inDays;
-      String month = (day / 30).toStringAsFixed(0);
+      int differenceInDays = difference.inDays;
+      String differenceInMonths = (differenceInDays / 30).toStringAsFixed(0);
 
-      return {'day': day +1, 'month': month};
+      return {'day': differenceInDays + 1, 'month': differenceInMonths};
     }
   }
 
