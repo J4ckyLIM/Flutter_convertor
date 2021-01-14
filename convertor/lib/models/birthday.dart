@@ -48,15 +48,13 @@ class Birthday {
 
       Duration difference = secondNextBirthdayDate.difference(today);
       int differenceInDays = difference.inDays;
-      int differenceInMonths =
-          int.parse((differenceInDays / 30).toStringAsFixed(0));
+      int differenceInMonths = differenceInDays ~/ 30;
 
       return {'months': differenceInMonths, 'days': differenceInDays + 1};
     } else {
       Duration difference = nextBirthdayDate.difference(today);
       int differenceInDays = difference.inDays;
-      int differenceInMonths =
-          int.parse((differenceInDays / 30).toStringAsFixed(0));
+      int differenceInMonths = differenceInDays ~/ 30;
       return {'months': differenceInMonths, 'days': differenceInDays + 1};
     }
   }
