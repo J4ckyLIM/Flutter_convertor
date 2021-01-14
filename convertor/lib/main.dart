@@ -44,16 +44,28 @@ typedef void UpdateStyleCallback(PossibleStyle possibleStyle);
 class _MyHomePageState extends State<MyHomePage> {
   final MaterialColor mainThemeColor = Colors.teal;
 
-  PossibleStyle _displayType = PossibleStyle.Grid;
+  PossibleStyle _displayType = PossibleStyle.Card;
+
+  int _displayIndex = 3;
+
+  int _scaleWidth = 1;
+
+  int _scaleHeight = 1;
 
   void _changeDisplay(PossibleStyle possibleStyle) => setState(() {
-        print(possibleStyle);
         switch (possibleStyle) {
           case PossibleStyle.Card:
+            _scaleWidth = 1;
+            _displayIndex = 3;
             break;
           case PossibleStyle.Grid:
+            _scaleWidth = 2;
+            _displayIndex = 3;
             break;
           case PossibleStyle.List:
+            _scaleWidth = 2;
+            _scaleHeight = 1;
+            _displayIndex = 1;
             break;
         }
         _displayType = possibleStyle;
@@ -76,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20),
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
-        crossAxisCount: 3,
+        childAspectRatio: (_scaleWidth / _scaleHeight),
+        crossAxisCount: _displayIndex,
         children: <Widget>[
           GridCell(
             title: 'File size convertor',
