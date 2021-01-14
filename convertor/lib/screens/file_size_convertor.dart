@@ -26,13 +26,13 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
   DropdownItem _dropdownValue2;
 
   FileSize fileSize1 = FileSize(0, "o");
-  FileSize fileSize2 = FileSize(0, "o");
+  FileSize fileSize2 = FileSize(0, "ko");
 
   @override
   void initState() {
     super.initState();
     _dropdownValue = _fileSizeUnit.first;
-    _dropdownValue2 = _fileSizeUnit.first;
+    _dropdownValue2 = _fileSizeUnit[1];
   }
 
   @override
