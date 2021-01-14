@@ -1,5 +1,6 @@
 import 'package:convertor/routes.dart';
 import 'package:convertor/routing.dart';
+import 'package:convertor/widgets/custom_drawer.dart';
 import 'package:convertor/widgets/grid_cell.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
-      home: MyHomePage(title: 'Tools'),
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(
+        title: 'Tools',
+      ),
     );
   }
 }
@@ -29,14 +33,42 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+enum PossibleStyle {
+  Grid,
+  List,
+  Card,
+}
+
+typedef void UpdateStyleCallback(PossibleStyle possibleStyle);
+
 class _MyHomePageState extends State<MyHomePage> {
-  final MaterialColor backgroundColor = Colors.blueGrey;
+  final MaterialColor mainThemeColor = Colors.teal;
+
+  PossibleStyle _displayType = PossibleStyle.Grid;
+
+  void _changeDisplay(PossibleStyle possibleStyle) => setState(() {
+        print(possibleStyle);
+        switch (possibleStyle) {
+          case PossibleStyle.Card:
+            break;
+          case PossibleStyle.Grid:
+            break;
+          case PossibleStyle.List:
+            break;
+        }
+        _displayType = possibleStyle;
+      });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+      ),
+      drawer: CustomDrawer(
+        title: 'Coding Tools',
+        headerColor: mainThemeColor,
+        callback: (val) => _changeDisplay(val),
       ),
       body: Center(
           child: GridView.count(
@@ -48,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           GridCell(
             title: 'File size convertor',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(context, Routes.FileSizeConvertor);
             },
@@ -56,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Lifetime calculator',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(context, Routes.BirthdayCalculator);
             },
@@ -64,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Price reduction calculator',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(
                   context, Routes.PriceReductionCalculator);
@@ -73,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Date difference calculator',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(
                   context, Routes.DateDifferenceCalculator);
@@ -82,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Distance convertor',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(context, Routes.DistanceConvertor);
             },
@@ -90,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Binary convertor',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(context, Routes.FileSizeConvertor);
             },
@@ -98,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Area convertor',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(context, Routes.AreaConvertor);
             },
@@ -106,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Temperature convertor',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(context, Routes.TemperatureConvertor);
             },
@@ -114,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           GridCell(
             title: 'Roman number convertor',
-            backgroundColor: backgroundColor,
+            backgroundColor: mainThemeColor,
             action: () {
               Routing.navigateToScreen(context, Routes.RomanNumberConvertor);
             },
