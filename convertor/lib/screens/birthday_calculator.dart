@@ -15,7 +15,7 @@ class _BirthdayCalculatorState extends State<BirthdayCalculator> {
   int monthsLived;
   int daysLived;
   int hoursLived;
-  AllTimeLivingInfo numberOfYearsMonthsDaysLived = AllTimeLivingInfo(1, 1, 1);
+  AllDateInfo numberOfYearsMonthsDaysLived = AllDateInfo(1, 1, 1);
   NextBirthday numberOfMonthsDaysBeforeNextBirthday = NextBirthday(1, 1);
 
   Future<void> _selectDate(BuildContext context) async {

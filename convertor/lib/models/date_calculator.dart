@@ -1,14 +1,23 @@
-class DateCalculator {
+class DateCalcul {
   DateTime date;
 
-  DateCalculator(this.date);
+  DateCalcul(this.date);
 
-  Map<String, Object> calculDate(DateTime date2) {
-    Duration difference = date2.difference(this.date);
-    int day = difference.inDays;
-    String month = (day / 30).toStringAsFixed(2);
-    String year = (day / 365).toStringAsFixed(2);
+  Map<String, int> calculDateDifference(DateTime dateToCompareTo) {
+    int years = dateToCompareTo.year - this.date.year;
+    int months = dateToCompareTo.month - this.date.month;
+    int days = dateToCompareTo.day - this.date.day;
 
-    return {'day': day, 'month': month, 'year': year};
+    if (months < 0 || (months == 0 && days < 0)) {
+      years--;
+      months += (days < 0 ? 11 : 12);
+    }
+    if (days < 0) {
+      DateTime monthAgo = DateTime(
+          dateToCompareTo.year, dateToCompareTo.month - 1, this.date.day);
+      days = dateToCompareTo.difference(monthAgo).inDays + 1;
+    }
+
+    return {'days': days, 'months': months, 'years': years};
   }
 }

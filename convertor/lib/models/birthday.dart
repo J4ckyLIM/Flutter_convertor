@@ -67,10 +67,10 @@ class NextBirthday {
   NextBirthday(this.inMonths, this.inDays);
 }
 
-class AllTimeLivingInfo {
+class AllDateInfo {
   int years;
   int months;
   int days;
 
-  AllTimeLivingInfo(this.years, this.months, this.days);
+  AllDateInfo(this.years, this.months, this.days);
 }
