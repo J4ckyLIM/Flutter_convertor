@@ -101,6 +101,7 @@ class _DistanceConvertorState extends State<DistanceConvertor> {
                         onChanged: (String value) {
                           setState(() {
                             _distance1.distance = double.parse(value);
+
                             _distance2.distance =
                                 _distance1.convertDistance(_distance2.unit);
                           });
@@ -146,6 +147,7 @@ class _DistanceConvertorState extends State<DistanceConvertor> {
                         onChanged: (String value) {
                           setState(() {
                             _distance2.distance = double.parse(value);
+
                             _distance1.distance =
                                 _distance2.convertDistance(_distance1.unit);
                           });
