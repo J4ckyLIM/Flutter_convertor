@@ -21,10 +21,10 @@ class PriceReductionCalculator extends StatefulWidget {
 
 class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
   
-  double prixSaisis; 
-  int pourcentSaisis; 
-  double economie; 
-  double prixAPayer;
+  double seizedPrice; 
+  int seizedPercent; 
+  double economy; 
+  double lastPrice;
   bool isVisible = false;
   
   PriceReduction myPriceReduction = PriceReduction(0.0 , 0); 
@@ -34,7 +34,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
   @override
  void initState(){
    super.initState();
-   myPriceReduction = new PriceReduction(prixSaisis, pourcentSaisis);
+   myPriceReduction = new PriceReduction(seizedPrice, seizedPercent);
  }
  
 
@@ -57,11 +57,11 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                 Container(
                   width: 300,
                   child: TextField(
-                    onSubmitted: (String monPrixSaisis){
-                     if( double.tryParse(monPrixSaisis) != null ){
+                    onSubmitted: (String mySeizedPrice){
+                     if( double.tryParse(mySeizedPrice) != null ){
 
                        setState(() {
-                        prixSaisis= double.parse(monPrixSaisis);
+                        seizedPrice= double.parse(mySeizedPrice);
                         }
                       );
 
@@ -86,10 +86,10 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                 Container(
                   width: 300,
                   child: TextField(
-                    onSubmitted: (String maReduction){
-                      if(int.tryParse(maReduction) != null){
+                    onSubmitted: (String myReduc){
+                      if(int.tryParse(myReduc) != null){
                         setState(() {
-                          pourcentSaisis = int.parse(maReduction);
+                          seizedPercent = int.parse(myReduc);
                         });
                       }
                     },
@@ -108,12 +108,12 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                   child: IconButton(icon: Icon(Icons.check_box),
                     iconSize: 50,
                     onPressed: (){
-                      List reduction = PriceReduction.calcul(prixSaisis, 
-                      pourcentSaisis); 
+                      List reduction = PriceReduction.calcul(seizedPrice, 
+                      seizedPercent); 
                       setState(() {
                         isVisible = true;
-                        economie = reduction.last;
-                        prixAPayer = reduction.first;
+                        economy = reduction.last;
+                        lastPrice = reduction.first;
                       });
                       
                     },
@@ -125,7 +125,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( 
-                  child: Text('Vous économiser: $economie € il vous reste à payer $prixAPayer €'),
+                  child: Text('Vous économiser: $economy € il vous reste à payer $lastPrice €'),
                 ),
               ],
             ) : Container(),
