@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             action: () {
               Routing.navigateToScreen(context, Routes.FileSizeConvertor);
             },
+            icon: Icons.description,
           ),
           GridCell(
             title: 'Lifetime calculator',
@@ -59,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
             action: () {
               Routing.navigateToScreen(context, Routes.BirthdayCalculator);
             },
+            icon: Icons.timelapse,
           ),
           GridCell(
             title: 'Price reduction calculator',
@@ -67,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Routing.navigateToScreen(
                   context, Routes.PriceReductionCalculator);
             },
+            icon: Icons.shopping_cart,
           ),
           GridCell(
             title: 'Date difference calculator',
@@ -75,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Routing.navigateToScreen(
                   context, Routes.DateDifferenceCalculator);
             },
+            icon: Icons.calendar_today,
           ),
           GridCell(
             title: 'Distance convertor',
@@ -82,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
             action: () {
               Routing.navigateToScreen(context, Routes.DistanceConvertor);
             },
+            icon: Icons.commute,
           ),
           GridCell(
             title: 'Binary convertor',
@@ -89,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
             action: () {
               Routing.navigateToScreen(context, Routes.FileSizeConvertor);
             },
+            icon: Icons.filter_1,
           ),
           GridCell(
             title: 'Area convertor',
@@ -96,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
             action: () {
               Routing.navigateToScreen(context, Routes.AreaConvertor);
             },
+            icon: Icons.crop_square,
           ),
           GridCell(
             title: 'Temperature convertor',
@@ -103,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
             action: () {
               Routing.navigateToScreen(context, Routes.TemperatureConvertor);
             },
+            icon: Icons.ac_unit,
           ),
           GridCell(
             title: 'Roman number convertor',
@@ -110,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
             action: () {
               Routing.navigateToScreen(context, Routes.RomanNumberConvertor);
             },
+            icon: Icons.account_balance,
           ),
         ],
       )),
