@@ -82,7 +82,7 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
                               fileSize1.unit = newValue.value;
 
                               fileSize2.size =
-                                  fileSize2.convertSize(fileSize1.unit);
+                                  fileSize1.convertSize(fileSize2.unit);
                             });
                           },
                           items: _truc),
@@ -93,7 +93,6 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
                           initialValue: fileSize1.size.toString(),
                           keyboardType: TextInputType.number,
                           onChanged: (String value) {
-                            print(value.runtimeType);
                             setState(() {
                               fileSize1.size = double.parse(value);
                               fileSize2.size =
@@ -127,7 +126,7 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
                               fileSize2.unit = newValue.value;
 
                               fileSize1.size =
-                                  fileSize1.convertSize(fileSize2.unit);
+                                  fileSize2.convertSize(fileSize1.unit);
                             });
                           },
                           items: _truc),
