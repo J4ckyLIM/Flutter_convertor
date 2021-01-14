@@ -22,11 +22,18 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
     DropdownItem("Pétaoctet - Po", "po"),
   ];
 
-  DropdownItem _dropdownValue = null;
-  DropdownItem _dropdownValue2 = null;
+  DropdownItem _dropdownValue;
+  DropdownItem _dropdownValue2;
 
   FileSize fileSize1 = FileSize(0, "o");
   FileSize fileSize2 = FileSize(0, "o");
+
+  @override
+  void initState() {
+    super.initState();
+    _dropdownValue = _fileSizeUnit.first;
+    _dropdownValue2 = _fileSizeUnit.first;
+  }
 
   @override
   Widget build(BuildContext context) {
