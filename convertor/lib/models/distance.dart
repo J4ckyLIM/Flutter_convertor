@@ -7,7 +7,7 @@ class Distance {
   Distance(this.distance, this.unit);
 
 
-  Map<String, Object> toMeterCoefficients = {
+  Map<String, Object> toNanometerCoefficients = {
     'nm': 1,
     'mm': 1000000,
     'cm': 10000000,
@@ -19,7 +19,7 @@ class Distance {
     'in': 25400000,
   };
 
-  Map<String, Object> fromMeterToOtherCoefficients = {
+  Map<String, Object> fromNanometerToOtherCoefficients = {
     'nm': 1,
     'mm': 1 / 1000000,
     'cm': 1 / 10000000,
@@ -32,8 +32,8 @@ class Distance {
   };
 
   double convertDistance(String unitToConvert){
-    double distanceToMeter = (this.distance * toMeterCoefficients[this.unit]).toDouble();
-    double distanceToUnitToConvert = distanceToMeter * fromMeterToOtherCoefficients[unitToConvert];
+    double distanceToMeter = (this.distance * toNanometerCoefficients[this.unit]).toDouble();
+    double distanceToUnitToConvert = distanceToMeter * fromNanometerToOtherCoefficients[unitToConvert];
 
     return distanceToUnitToConvert;
   }
