@@ -16,15 +16,15 @@ class _DistanceConvertorState extends State<DistanceConvertor> {
 
 
   List<DropdownItem> _distanceUnit = [
-    DropdownItem("Nanomètre - nm", "nm"),
-    DropdownItem("Milimètre - mm", "mm"),
-    DropdownItem("Centimètre - cm", "cm"),
-    DropdownItem("Décimètre - dm", "dm"),
-    DropdownItem("Mètre - m", "m"),
-    DropdownItem("Kilomètre - km", "km"),
+    DropdownItem("Nanometer - nm", "nm"),
+    DropdownItem("Millimeter - mm", "mm"),
+    DropdownItem("Centimeter - cm", "cm"),
+    DropdownItem("Decimeter - dm", "dm"),
+    DropdownItem("Meter - m", "m"),
+    DropdownItem("Kilometer - km", "km"),
     DropdownItem("Yard - yd", "yd"),
-    DropdownItem("Pied - ft", "ft"),
-    DropdownItem("Pouce - in", "in"),
+    DropdownItem("Feet - ft", "ft"),
+    DropdownItem("Inch - in", "in"),
   ];
 
   DropdownItem _dropdownValue;

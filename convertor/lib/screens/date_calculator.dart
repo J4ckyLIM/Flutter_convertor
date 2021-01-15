@@ -119,7 +119,7 @@ class _DateCalculatorState extends State<DateCalculator> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        '${result.years} an(s), ${result.months} mois et ${result.days} jour(s) sépare ces 2 dates.'),
+                        '${result.years} year(s), ${result.months} month(s) and ${result.days} day(s) separate these 2 dates.'),
                   ],
                 ))
           ],

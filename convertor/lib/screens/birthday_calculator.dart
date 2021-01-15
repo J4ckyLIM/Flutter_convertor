@@ -93,9 +93,9 @@ class _BirthdayCalculatorState extends State<BirthdayCalculator> {
                         'You lived\ ${numberOfYearsMonthsDaysLived.years} year(s), \ ${numberOfYearsMonthsDaysLived.months} month and\ ${numberOfYearsMonthsDaysLived.days} day(s).'),
                     Text(
                         'Your next birthday is in \ ${numberOfMonthsDaysBeforeNextBirthday.inDays} month and\ ${numberOfMonthsDaysBeforeNextBirthday.inDays} day(s).'),
-                    Text('Number of months leaved: ' + '$monthsLived'),
-                    Text('Number of days leaved: ' + '$daysLived'),
-                    Text('Number of hours leaved: ' + '$hoursLived'),
+                    Text('Number of months lived: ' + '$monthsLived'),
+                    Text('Number of days lived: ' + '$daysLived'),
+                    Text('Number of hours lived: ' + '$hoursLived'),
                   ],
                 ))
           ],

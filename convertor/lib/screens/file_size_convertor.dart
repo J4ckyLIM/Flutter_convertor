@@ -17,12 +17,12 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
   final MaterialColor mainThemeColor = Colors.teal;
 
   List<DropdownItem> _fileSizeUnit = [
-    DropdownItem("Octet - O", "o"),
-    DropdownItem("Kilooctet - Ko", "ko"),
-    DropdownItem("Mégaoctet - Mo", "mo"),
-    DropdownItem("Gigaoctet - Go", "go"),
-    DropdownItem("Téraoctet - To", "to"),
-    DropdownItem("Pétaoctet - Po", "po"),
+    DropdownItem("Byte - B", "o"),
+    DropdownItem("Kilobyte - KB", "ko"),
+    DropdownItem("Megabyte - MB", "mo"),
+    DropdownItem("Gigabyte - GB", "go"),
+    DropdownItem("Terabyte - TB", "to"),
+    DropdownItem("Petabytes - PB", "po"),
   ];
 
   DropdownItem _dropdownValue;

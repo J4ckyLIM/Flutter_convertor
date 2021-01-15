@@ -15,9 +15,9 @@ class _AreaConvertorState extends State<AreaConvertor> {
   final MaterialColor mainThemeColor = Colors.teal;
 
   List<DropdownItem> _areaUnit = [
-    DropdownItem("Centimètre carré (cm²)", "cm²"),
-    DropdownItem("Mètre carré (m²)", "m²"),
-    DropdownItem("Kilomètre carrré (km²)", "km²"),
+    DropdownItem("Square centimeter (cm²)", "cm²"),
+    DropdownItem("Square meter (m²)", "m²"),
+    DropdownItem("Square kilometer  (km²)", "km²"),
     DropdownItem("Hectare (ha)", "ha"),
     DropdownItem("Acre (ac)", "ac")
   ];
