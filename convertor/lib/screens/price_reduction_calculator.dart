@@ -89,7 +89,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                       }
                     },
                     decoration: InputDecoration(
-                      labelText: "Enter the reduction",
+                      labelText: "Enter the reduction (%)",
                     ),
                     keyboardType: TextInputType.number,
                   ),
