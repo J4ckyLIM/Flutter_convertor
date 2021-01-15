@@ -24,7 +24,9 @@ class _BirthdayCalculatorState extends State<BirthdayCalculator> {
         initialDate: DateTime.now(),
         firstDate: DateTime(1900, 1),
         lastDate: DateTime(2101));
-    if (picked != null && picked != DateTime.now())
+    if (picked != null &&
+        picked != DateTime.now() &&
+        picked.isBefore(DateTime.now())) {
       setState(() {
         if (myBirthday == null) {
           myBirthday = Birthday(picked);
@@ -45,6 +47,7 @@ class _BirthdayCalculatorState extends State<BirthdayCalculator> {
         numberOfMonthsDaysBeforeNextBirthday.inMonths =
             nextBirthdayData['days'];
       });
+    }
   }
 
   @override
