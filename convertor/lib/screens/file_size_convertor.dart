@@ -13,6 +13,9 @@ class FileSizeConvertor extends StatefulWidget {
 }
 
 class _FileSizeConvertorState extends State<FileSizeConvertor> {
+
+  final MaterialColor mainThemeColor = Colors.teal;
+
   List<DropdownItem> _fileSizeUnit = [
     DropdownItem("Octet - O", "o"),
     DropdownItem("Kilooctet - Ko", "ko"),
@@ -55,102 +58,114 @@ class _FileSizeConvertorState extends State<FileSizeConvertor> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Icon(Icons.arrow_downward),
-                  )
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Image(
+                        image: AssetImage(
+                          'assets/icon-convert.jpg'
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DropdownButton<DropdownItem>(
-                          value: _dropdownValue,
-                          icon: Icon(Icons.arrow_downward),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
+              Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        DropdownButton<DropdownItem>(
+                            value: _dropdownValue,
+                            icon: Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: mainThemeColor),
+                            underline: Container(
+                              height: 2,
+                              color: mainThemeColor,
+                            ),
+                            onChanged: (DropdownItem newValue) {
+                              setState(() {
+                                _dropdownValue = newValue;
+
+                                fileSize1.unit = newValue.value;
+
+                                fileSize2.size =
+                                    fileSize1.convertSize(fileSize2.unit);
+                              });
+                            },
+                            items: _truc),
+                        Container(
+                          margin: new EdgeInsets.symmetric(horizontal: 20.0),
+                          width: 300,
+                          child: TextFormField(
+                            key: Key(fileSize1.size.toString()),
+                            initialValue: fileSize1.size.toString(),
+                            keyboardType: TextInputType.number,
+                            onChanged: (String value) {
+                              setState(() {
+                                fileSize1.size = double.parse(value);
+                                fileSize2.size =
+                                    fileSize1.convertSize(fileSize2.unit);
+                              });
+                            },
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Value to convert'),
                           ),
-                          onChanged: (DropdownItem newValue) {
-                            setState(() {
-                              _dropdownValue = newValue;
-
-                              fileSize1.unit = newValue.value;
-
-                              fileSize2.size =
-                                  fileSize1.convertSize(fileSize2.unit);
-                            });
-                          },
-                          items: _truc),
-                      Container(
-                        width: 300,
-                        child: TextFormField(
-                          key: Key(fileSize1.size.toString()),
-                          initialValue: fileSize1.size.toString(),
-                          keyboardType: TextInputType.number,
-                          onChanged: (String value) {
-                            setState(() {
-                              fileSize1.size = double.parse(value);
-                              fileSize2.size =
-                                  fileSize1.convertSize(fileSize2.unit);
-                            });
-                          },
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Value to convert'),
                         ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DropdownButton<DropdownItem>(
-                          value: _dropdownValue2,
-                          icon: Icon(Icons.arrow_downward),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        DropdownButton<DropdownItem>(
+                            value: _dropdownValue2,
+                            icon: Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: mainThemeColor),
+                            underline: Container(
+                              height: 2,
+                              color: mainThemeColor,
+                            ),
+                            onChanged: (DropdownItem newValue) {
+                              setState(() {
+                                _dropdownValue2 = newValue;
+
+                                fileSize2.unit = newValue.value;
+
+                                fileSize1.size =
+                                    fileSize2.convertSize(fileSize1.unit);
+                              });
+                            },
+                            items: _truc),
+                        Container(
+                          margin: new EdgeInsets.symmetric(horizontal: 20.0),
+                          width: 300,
+                          child: TextFormField(
+                            key: Key(fileSize2.size.toString()),
+                            initialValue: fileSize2.size.toString(),
+                            onChanged: (String value) {
+                              setState(() {
+                                fileSize2.size = double.parse(value);
+
+                                fileSize1.size =
+                                    fileSize2.convertSize(fileSize1.unit);
+                              });
+                            },
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Value to convert'),
                           ),
-                          onChanged: (DropdownItem newValue) {
-                            setState(() {
-                              _dropdownValue2 = newValue;
-
-                              fileSize2.unit = newValue.value;
-
-                              fileSize1.size =
-                                  fileSize2.convertSize(fileSize1.unit);
-                            });
-                          },
-                          items: _truc),
-                      Container(
-                        width: 300,
-                        child: TextFormField(
-                          key: Key(fileSize2.size.toString()),
-                          initialValue: fileSize2.size.toString(),
-                          onChanged: (String value) {
-                            setState(() {
-                              fileSize2.size = double.parse(value);
-
-                              fileSize1.size =
-                                  fileSize2.convertSize(fileSize1.unit);
-                            });
-                          },
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Value to convert'),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
