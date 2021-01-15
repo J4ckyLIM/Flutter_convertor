@@ -1,6 +1,7 @@
 import 'package:convertor/main.dart';
 import 'package:convertor/routes.dart';
 import 'package:convertor/screens/area_convertor.dart';
+import 'package:convertor/screens/audio_player.dart';
 import 'package:convertor/screens/birthday_calculator.dart';
 import 'package:convertor/screens/date_calculator.dart';
 import 'package:convertor/screens/distance_convertor.dart';
@@ -69,6 +70,13 @@ class Routing {
           MaterialPageRoute(
               builder: (context) =>
                   BirthdayCalculator(title: 'Birthday calculator')),
+        );
+        break;
+      case Routes.AudioPlayer:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => AudioPlayerScreen(title: 'Audio player')),
         );
         break;
       default:

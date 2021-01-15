@@ -6,5 +6,6 @@ enum Routes {
   PriceReductionCalculator,
   RomanNumberConvertor,
   TemperatureConvertor,
-  BirthdayCalculator
+  BirthdayCalculator,
+  AudioPlayer
 }

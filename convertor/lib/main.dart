@@ -165,6 +165,14 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             icon: Icons.account_balance,
           ),
+          GridCell(
+            title: 'Audio player',
+            backgroundColor: mainThemeColor,
+            action: () {
+              Routing.navigateToScreen(context, Routes.AudioPlayer);
+            },
+            icon: Icons.music_note,
+          ),
         ],
       )),
     );
