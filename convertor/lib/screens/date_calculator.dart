@@ -93,7 +93,7 @@ class _DateCalculatorState extends State<DateCalculator> {
                   alignment: Alignment.center,
                   margin: EdgeInsets.all(8),
                   child: ElevatedButton(
-                    onPressed: () => _selectMainDate(context),
+                    onPressed: () => _selectSecondDate(context),
                     child: Text(
                         '${DateFormat('yyyy-MM-dd').format(dateToCompareTo.date)}'),
                   ),
