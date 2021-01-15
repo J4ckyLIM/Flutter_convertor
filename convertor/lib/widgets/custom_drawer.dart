@@ -26,6 +26,10 @@ class CustomDrawer extends StatelessWidget {
               color: this.headerColor,
             ),
           ),
+          Container(
+            alignment: Alignment.center,
+            child: Text('Select a display style'),
+          ),
           ListTile(
             title: Text('List'),
             onTap: () {
