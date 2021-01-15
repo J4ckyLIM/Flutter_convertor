@@ -1,7 +1,9 @@
 class Roman {
   int value;
 
-  Roman(this.value);
+  String romanValue;
+
+  Roman(this.value, this.romanValue);
 
   Map<int, String> romanNumber = {
     1000: 'M',
@@ -19,14 +21,44 @@ class Roman {
     1: 'I'
   };
 
+  Map<String, int> romanNumber2 = {
+    'M' : 1000,
+    'CM' : 900,
+    'D' : 500,
+    'CD' : 400,
+    'C' : 100,
+    'XC' : 90,
+    'L' : 50,
+    'XL' : 40,
+    'X' : 10,
+    'IX' : 9,
+    'V' : 5,
+    'IV' : 4,
+    'I' : 1
+  };
+
   String convertToRoman() {
-    String romanValue = '';
+    this.romanValue = "";
     romanNumber.forEach((decimal, romanLetter) {
       while (this.value >= decimal) {
-        romanValue += romanLetter;
+        this.romanValue += romanLetter;
         this.value -= decimal;
       }
     });
-    return romanValue;
+    return this.romanValue;
+  }
+
+  int convertRomanToInt(String roman){
+    int len = roman.length;
+    int result = 0;
+
+    for(var i = 0; i < len; i++){
+      if( (i + 1) < len && romanNumber2[roman[i]] < romanNumber2[roman[i + 1]]){
+        result -= romanNumber2[roman[i]];
+      } else {
+        result += romanNumber2[roman[i]];
+      }
+    }
+    return result;
   }
 }
