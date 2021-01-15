@@ -12,6 +12,8 @@ class TemperatureConvertor extends StatefulWidget {
 }
 
 class _TemperatureConvertorState extends State<TemperatureConvertor> {
+  final MaterialColor mainThemeColor = Colors.teal;
+
   List<DropdownItem> _temperatureUnit = [
     DropdownItem("Celsius", "celsius"),
     DropdownItem("Kelvin", "kelvin"),
@@ -51,102 +53,118 @@ class _TemperatureConvertorState extends State<TemperatureConvertor> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Icon(Icons.arrow_downward),
-                  )
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image(
+                          height: 200,
+                          image: AssetImage(
+                              'assets/temperature-image.jpg'
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DropdownButton<DropdownItem>(
-                          value: _dropdownValue,
-                          icon: Icon(Icons.arrow_downward),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
+              Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        DropdownButton<DropdownItem>(
+                            value: _dropdownValue,
+                            icon: Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: mainThemeColor),
+                            underline: Container(
+                              height: 2,
+                              color: mainThemeColor,
+                            ),
+                            onChanged: (DropdownItem newValue) {
+                              setState(() {
+                                _dropdownValue = newValue;
+
+                                temperature1.unit = newValue.value;
+
+                                temperature2.temperature = temperature1
+                                    .convertTemperature(temperature2.unit);
+                              });
+                            },
+                            items: _dropdownMenuItem),
+                        Container(
+                          margin: new EdgeInsets.symmetric(horizontal: 20.0),
+                          width: 300,
+                          child: TextFormField(
+                            key: Key(temperature1.temperature.toString()),
+                            initialValue: temperature1.temperature.toString(),
+                            keyboardType: TextInputType.number,
+                            onChanged: (String value) {
+                              setState(() {
+                                temperature1.temperature = double.parse(value);
+                                temperature2.temperature = temperature1
+                                    .convertTemperature(temperature2.unit);
+                              });
+                            },
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Value to convert'),
                           ),
-                          onChanged: (DropdownItem newValue) {
-                            setState(() {
-                              _dropdownValue = newValue;
-
-                              temperature1.unit = newValue.value;
-
-                              temperature2.temperature = temperature1
-                                  .convertTemperature(temperature2.unit);
-                            });
-                          },
-                          items: _dropdownMenuItem),
-                      Container(
-                        width: 300,
-                        child: TextFormField(
-                          key: Key(temperature1.temperature.toString()),
-                          initialValue: temperature1.temperature.toString(),
-                          keyboardType: TextInputType.number,
-                          onChanged: (String value) {
-                            setState(() {
-                              temperature1.temperature = double.parse(value);
-                              temperature2.temperature = temperature1
-                                  .convertTemperature(temperature2.unit);
-                            });
-                          },
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Value to convert'),
                         ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DropdownButton<DropdownItem>(
-                          value: _dropdownValue2,
-                          icon: Icon(Icons.arrow_downward),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        DropdownButton<DropdownItem>(
+                            value: _dropdownValue2,
+                            icon: Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: mainThemeColor),
+                            underline: Container(
+                              height: 2,
+                              color: mainThemeColor,
+                            ),
+                            onChanged: (DropdownItem newValue) {
+                              setState(() {
+                                _dropdownValue2 = newValue;
+
+                                temperature2.unit = newValue.value;
+
+                                temperature1.temperature = temperature2
+                                    .convertTemperature(temperature1.unit);
+                              });
+                            },
+                            items: _dropdownMenuItem),
+                        Container(
+                          margin: new EdgeInsets.symmetric(horizontal: 20.0),
+                          width: 300,
+                          child: TextFormField(
+                            key: Key(temperature2.temperature.toString()),
+                            initialValue: temperature2.temperature.toString(),
+                            onChanged: (String value) {
+                              setState(() {
+                                temperature2.temperature = double.parse(value);
+
+                                temperature1.temperature = temperature2
+                                    .convertTemperature(temperature1.unit);
+                              });
+                            },
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Value to convert'),
                           ),
-                          onChanged: (DropdownItem newValue) {
-                            setState(() {
-                              _dropdownValue2 = newValue;
-
-                              temperature2.unit = newValue.value;
-
-                              temperature1.temperature = temperature2
-                                  .convertTemperature(temperature1.unit);
-                            });
-                          },
-                          items: _dropdownMenuItem),
-                      Container(
-                        width: 300,
-                        child: TextFormField(
-                          key: Key(temperature2.temperature.toString()),
-                          initialValue: temperature2.temperature.toString(),
-                          onChanged: (String value) {
-                            setState(() {
-                              temperature2.temperature = double.parse(value);
-
-                              temperature1.temperature = temperature2
-                                  .convertTemperature(temperature1.unit);
-                            });
-                          },
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Value to convert'),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

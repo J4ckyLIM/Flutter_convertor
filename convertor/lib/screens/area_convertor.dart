@@ -12,6 +12,8 @@ class AreaConvertor extends StatefulWidget {
 }
 
 class _AreaConvertorState extends State<AreaConvertor> {
+  final MaterialColor mainThemeColor = Colors.teal;
+
   List<DropdownItem> _areaUnit = [
     DropdownItem("Centimètre carré (cm²)", "cm²"),
     DropdownItem("Mètre carré (m²)", "m²"),
@@ -53,98 +55,111 @@ class _AreaConvertorState extends State<AreaConvertor> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Icon(Icons.arrow_downward),
-                  )
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Image(
+                        height: 250,
+                        image: AssetImage(
+                            'assets/area-image.png'
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DropdownButton<DropdownItem>(
-                          value: _dropdownValue,
-                          icon: Icon(Icons.arrow_downward),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
+              Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        DropdownButton<DropdownItem>(
+                            value: _dropdownValue,
+                            icon: Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: mainThemeColor),
+                            underline: Container(
+                              height: 2,
+                              color: mainThemeColor,
+                            ),
+                            onChanged: (DropdownItem newValue) {
+                              setState(() {
+                                _dropdownValue = newValue;
+
+                                area1.unit = newValue.value;
+
+                                area2.area = area1.convertArea(area2.unit);
+                              });
+                            },
+                            items: _dropDownMenuItem),
+                        Container(
+                          margin: new EdgeInsets.symmetric(horizontal: 20.0),
+                          width: 300,
+                          child: TextFormField(
+                            key: Key(area1.area.toString()),
+                            initialValue: area1.area.toString(),
+                            keyboardType: TextInputType.number,
+                            onChanged: (String value) {
+                              setState(() {
+                                area1.area = double.parse(value);
+                                area2.area = area1.convertArea(area2.unit);
+                              });
+                            },
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Value to convert'),
                           ),
-                          onChanged: (DropdownItem newValue) {
-                            setState(() {
-                              _dropdownValue = newValue;
-
-                              area1.unit = newValue.value;
-
-                              area2.area = area1.convertArea(area2.unit);
-                            });
-                          },
-                          items: _dropDownMenuItem),
-                      Container(
-                        width: 300,
-                        child: TextFormField(
-                          key: Key(area1.area.toString()),
-                          initialValue: area1.area.toString(),
-                          keyboardType: TextInputType.number,
-                          onChanged: (String value) {
-                            setState(() {
-                              area1.area = double.parse(value);
-                              area2.area = area1.convertArea(area2.unit);
-                            });
-                          },
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Value to convert'),
                         ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DropdownButton<DropdownItem>(
-                          value: _dropdownValue2,
-                          icon: Icon(Icons.arrow_downward),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        DropdownButton<DropdownItem>(
+                            value: _dropdownValue2,
+                            icon: Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: mainThemeColor),
+                            underline: Container(
+                              height: 2,
+                              color: mainThemeColor,
+                            ),
+                            onChanged: (DropdownItem newValue) {
+                              setState(() {
+                                _dropdownValue2 = newValue;
+
+                                area2.unit = newValue.value;
+
+                                area1.area = area2.convertArea(area1.unit);
+                              });
+                            },
+                            items: _dropDownMenuItem),
+                        Container(
+                          margin: new EdgeInsets.symmetric(horizontal: 20.0),
+                          width: 300,
+                          child: TextFormField(
+                            key: Key(area2.area.toString()),
+                            initialValue: area2.area.toString(),
+                            onChanged: (String value) {
+                              setState(() {
+                                area2.area = double.parse(value);
+
+                                area1.area = area2.convertArea(area1.unit);
+                              });
+                            },
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Value to convert'),
                           ),
-                          onChanged: (DropdownItem newValue) {
-                            setState(() {
-                              _dropdownValue2 = newValue;
-
-                              area2.unit = newValue.value;
-
-                              area1.area = area2.convertArea(area1.unit);
-                            });
-                          },
-                          items: _dropDownMenuItem),
-                      Container(
-                        width: 300,
-                        child: TextFormField(
-                          key: Key(area2.area.toString()),
-                          initialValue: area2.area.toString(),
-                          onChanged: (String value) {
-                            setState(() {
-                              area2.area = double.parse(value);
-
-                              area1.area = area2.convertArea(area1.unit);
-                            });
-                          },
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Value to convert'),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
