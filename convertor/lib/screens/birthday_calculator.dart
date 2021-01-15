@@ -1,5 +1,6 @@
 import 'package:convertor/models/birthday.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class BirthdayCalculator extends StatefulWidget {
   BirthdayCalculator({Key key, this.title}) : super(key: key);
@@ -78,7 +79,8 @@ class _BirthdayCalculatorState extends State<BirthdayCalculator> {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     onPressed: () => _selectDate(context),
-                    child: Text('Add my birthday'),
+                    child: Text(
+                        '${myBirthday != null ? DateFormat('yyyy-MM-dd').format(myBirthday.dateBirthday) : "Select my birthday"}'),
                   ),
                 )
               ],
