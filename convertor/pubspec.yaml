@@ -53,6 +53,7 @@ flutter:
     - assets/distance-image.png
     - assets/temperature-image.jpg
     - assets/area-image.png
+    - assets/roman-image.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
