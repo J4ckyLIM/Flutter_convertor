@@ -90,12 +90,12 @@ class _BirthdayCalculatorState extends State<BirthdayCalculator> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        'Tu as vécu\ ${numberOfYearsMonthsDaysLived.years} an(s), \ ${numberOfYearsMonthsDaysLived.months} mois et\ ${numberOfYearsMonthsDaysLived.days} jour(s).'),
+                        'You lived\ ${numberOfYearsMonthsDaysLived.years} year(s), \ ${numberOfYearsMonthsDaysLived.months} month and\ ${numberOfYearsMonthsDaysLived.days} day(s).'),
                     Text(
-                        'Prochain anniversaire dans\ ${numberOfMonthsDaysBeforeNextBirthday.inDays} mois et\ ${numberOfMonthsDaysBeforeNextBirthday.inDays} jour(s).'),
-                    Text('Nombre de mois vécu: ' + '$monthsLived'),
-                    Text('Nombre de jours vécu: ' + '$daysLived'),
-                    Text('Nombre d\'heures vécu: ' + '$hoursLived'),
+                        'Your next birthday is in \ ${numberOfMonthsDaysBeforeNextBirthday.inDays} month and\ ${numberOfMonthsDaysBeforeNextBirthday.inDays} day(s).'),
+                    Text('Number of months lived: ' + '$monthsLived'),
+                    Text('Number of days lived: ' + '$daysLived'),
+                    Text('Number of hours lived: ' + '$hoursLived'),
                   ],
                 ))
           ],
