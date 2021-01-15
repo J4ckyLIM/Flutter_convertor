@@ -6,7 +6,7 @@ class GridCell extends StatelessWidget {
 
   final String title;
   final MaterialColor backgroundColor;
-  final ImageIcon icon;
+  final IconData icon;
   final VoidCallback action;
 
   @override
@@ -15,21 +15,22 @@ class GridCell extends StatelessWidget {
         onTap: this.action,
         child: Container(
           padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              color: this.backgroundColor,
+              borderRadius: BorderRadius.circular(15)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                this.title,
+                this.title.toUpperCase(),
                 style: TextStyle(color: Colors.white),
               ),
-              Container(
-                color: Colors.grey,
-                width: 80,
-                height: 80,
+              Icon(
+                this.icon ?? Icons.ac_unit_outlined,
+                size: 80,
               ),
             ],
           ),
-          color: this.backgroundColor,
         ));
   }
 }
