@@ -32,12 +32,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
  
 
   @override
- void initState(){
-   super.initState();
-   myPriceReduction = new PriceReduction(seizedPrice, seizedPercent);
- }
- 
-
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -69,7 +64,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                       
                     },
                     decoration: InputDecoration(
-                      labelText: "enter the price:",
+                      labelText: "Enter the price:",
                       ),
                     keyboardType: TextInputType.number,
                   ),
@@ -94,7 +89,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                       }
                     },
                     decoration: InputDecoration(
-                      labelText: "Enther the réduction",
+                      labelText: "Enter the reduction",
                     ),
                     keyboardType: TextInputType.number,
                   ),
