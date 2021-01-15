@@ -52,7 +52,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                 Container(
                   width: 300,
                   child: TextField(
-                    onSubmitted: (String mySeizedPrice){
+                    onChanged: (String mySeizedPrice){
                      if( double.tryParse(mySeizedPrice) != null ){
 
                        setState(() {
@@ -81,7 +81,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                 Container(
                   width: 300,
                   child: TextField(
-                    onSubmitted: (String myReduc){
+                    onChanged: (String myReduc){
                       if(int.tryParse(myReduc) != null){
                         setState(() {
                           seizedPercent = int.parse(myReduc);
