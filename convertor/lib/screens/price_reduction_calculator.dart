@@ -51,7 +51,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  child : Text( 'Prix :'),
+                  child : Text( 'Price :'),
                   
                 ),
                 Container(
@@ -69,7 +69,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                       
                     },
                     decoration: InputDecoration(
-                      labelText: "Saisir le prix de l'article",
+                      labelText: "enter the price:",
                       ),
                     keyboardType: TextInputType.number,
                   ),
@@ -81,7 +81,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( 
-                  child: Text( 'Réduction :'),
+                  child: Text( 'Reduction :'),
                 ),
                 Container(
                   width: 300,
@@ -94,7 +94,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
                       }
                     },
                     decoration: InputDecoration(
-                      labelText: "Saisir la réduction",
+                      labelText: "Enther the réduction",
                     ),
                     keyboardType: TextInputType.number,
                   ),
@@ -125,7 +125,7 @@ class _PriceReductionCalculatorState extends State<PriceReductionCalculator> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container( 
-                  child: Text('Vous économiser: $economy € il vous reste à payer $lastPrice €'),
+                  child: Text('You  save: $economy €, you have to pay: $lastPrice €'),
                 ),
               ],
             ) : Container(),
