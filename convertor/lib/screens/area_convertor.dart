@@ -58,8 +58,9 @@ class _AreaConvertorState extends State<AreaConvertor> {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Image(
+                        height: 250,
                         image: AssetImage(
-                            ''
+                            'assets/area-image.png'
                         ),
                       ),
                     ),
