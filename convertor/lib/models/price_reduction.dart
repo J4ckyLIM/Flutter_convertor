@@ -7,10 +7,9 @@ class PriceReduction {
     this.reduction = myReduction;
   }
 
-  Map<String, Object> calcul(double myPrice, int myReduction) {
+  static List calcul(double myPrice, int myReduction) {
     double thisReduc = (myPrice * myReduction) / 100;
     double endPrice = myPrice - thisReduc;
-
-    return {'endPrice': endPrice, 'reduc': thisReduc};
+    return [endPrice, thisReduc];
   }
 }
