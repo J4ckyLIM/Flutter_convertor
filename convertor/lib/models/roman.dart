@@ -53,15 +53,10 @@ class Roman {
     int result = 0;
 
     for(var i = 0; i < len; i++){
-      print("i : $i");
       if( (i + 1) < len && romanNumber2[roman[i]] < romanNumber2[roman[i + 1]]){
-        print('if 1');
         result -= romanNumber2[roman[i]];
-        print(romanNumber2[roman[i]]);
       } else {
-        print('else');
         result += romanNumber2[roman[i]];
-        print(romanNumber2[roman[i]]);
       }
     }
     return result;

@@ -12,8 +12,6 @@ class RomanConvertor extends StatefulWidget {
 
 class _RomanConvertorState extends State<RomanConvertor> {
 
-  //Roman _roman2 = Roman(5, "V");
-
   Roman _roman1 = Roman(1 , "I");
 
   @override
